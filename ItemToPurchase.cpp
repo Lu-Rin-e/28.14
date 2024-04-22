@@ -44,11 +44,11 @@ using namespace std;
       
   void ItemToPurchase::PrintItemCost() {
     //Bottled Water 10 @ $1 = $10
-    std::cout << itemName << " " << itemQuantity << " @ $" << itemPrice << " = $" << (itemQuantity * itemPrice) << std::endl;
+    cout << itemName << " " << itemQuantity << " @ $" << itemPrice << " = $" << (itemQuantity * itemPrice) << endl;
   }
   void ItemToPurchase::PrintItemDescription() {
     //Bottled Water: Deer Park, 12 oz.
-    std::cout << itemName << ": " << itemDescription << std::endl;
+    cout << itemName << ": " << itemDescription << endl;
   }
    
    /* string itemName;
