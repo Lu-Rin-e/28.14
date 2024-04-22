@@ -4,6 +4,8 @@
 #include <string>
 using namespace std;
 
+  //class constructors
+    //default constructor
   ItemToPurchase::ItemToPurchase() {
     itemName = "";
     itemDescription = "";
@@ -16,6 +18,8 @@ using namespace std;
     itemPrice = price;
     itemQuantity = quantity;
   }
+
+  //mutators
   void ItemToPurchase::SetName(string name) {
     itemName = name;
   }
@@ -28,7 +32,8 @@ using namespace std;
   void ItemToPurchase::SetQuantity(int quantity) {
     itemQuantity = quantity;
   }
-      
+
+  //getters
   string ItemToPurchase::GetName() const {
     return itemName;
   }
@@ -41,7 +46,8 @@ using namespace std;
   int ItemToPurchase::GetQuantity() const {
     return itemQuantity;
   }
-      
+
+  //print functions
   void ItemToPurchase::PrintItemCost() {
     //Bottled Water 10 @ $1 = $10
     cout << itemName << " " << itemQuantity << " @ $" << itemPrice << " = $" << (itemQuantity * itemPrice) << endl;
