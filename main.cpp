@@ -1,3 +1,7 @@
+// git repository link
+// Catherine Lu
+// Katie Frymire
+
 #include <iostream>
 #include <iomanip>
 using namespace std;
