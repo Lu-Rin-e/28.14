@@ -29,9 +29,9 @@ void ShoppingCart::AddItem(ItemToPurchase item){
 }
 
 void ShoppingCart::RemoveItem(string name){
-  for(ItemToPurchase e:cartItems){
-    if(e.GetName==name){
-      cartItems.remove(e);
+  for(unsigned int i=0; i<cartItems.size();i++){
+    if(cartItems[i].GetName()==name){
+      cartItems.erase(i);
       return;      
     }
   }
@@ -43,20 +43,19 @@ void ShoppingCart::ModifyItem(ItemToPurchase item){
 }
       
 int ShoppingCart::GetNumItemsInCart(){
-  return cartItems.lenght();
-  
+  return cartItems.size();
 }
 
 double ShoppingCart::GetCostOfCart(){
   double cartPrice=0.0;
   for(ItemToPurchase e:cartItems){
-    cartPrice= e.GetPrice();
+    cartPrice+=e.GetPrice();
   }
   return cartPrice;
 }
       
 void ShoppingCart::PrintTotal(){
-  if(cartItems.length() ==0){
+  if(cartItems.size() ==0){
     cout<<"SHOPPING CART IS EMPTY"<<endl;
   }
   else{
