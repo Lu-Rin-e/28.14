@@ -31,7 +31,7 @@ void ShoppingCart::AddItem(ItemToPurchase item){
 void ShoppingCart::RemoveItem(string name){
   for(unsigned int i=0; i<cartItems.size();i++){
     if(cartItems[i].GetName()==name){
-      cartItems.erase(i);
+       cartItems.erase(cartItems.begin()+i-1);     
       return;      
     }
   }
