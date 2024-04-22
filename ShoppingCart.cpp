@@ -29,7 +29,13 @@ void ShoppingCart::AddItem(ItemToPurchase item){
 }
 
 void ShoppingCart::RemoveItem(string name){
-  
+  for(ItemToPurchase e:cartItems){
+    if(e.GetName==name){
+      cartItems.remove(e);
+      return;      
+    }
+  }
+  cout<<"Item not found in cart. Nothing removed."<<endl;
 }
       
 void ShoppingCart::ModifyItem(ItemToPurchase item){
@@ -54,10 +60,22 @@ void ShoppingCart::PrintTotal(){
     cout<<"SHOPPING CART IS EMPTY"<<endl;
   }
   else{
-    cout<<cartItems.GetCostOfCart<<endl;
+    cout<<customerName<<"'s Shopping Cart - "<< currentDate<< endl;
+    cout<<"Number of Items: "<< cartItems.GetNumItemsInCart()<<endl;
+    cout<<endl;
+    for(ItemToPurchase e:cartItems){
+      e.PrintItemCost();
+    }
+    cout<<endl;
+    cout<<"Total: "<<cartItems.GetCostOfCart()<<endl;
   }
 }
 
 void ShoppingCart::PrintDescriptions(){
-  
+  cout<<customerName<<"'s Shopping Cart - "<< currentDate<< endl;
+  cout<<endl;
+  cout<<"Item Descriptions"<<endl;
+  for(ItemToPurchase e:cartItems){
+      e.PrintItemDescription();
+  } 
 }
