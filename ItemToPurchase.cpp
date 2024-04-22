@@ -6,49 +6,49 @@
 #include <string>
 using namespace std;
 
-  ItemToPurchase() {
+  ItemToPurchase::ItemToPurchase() {
     itemName = "";
     itemDescription = "";
     itemPrice = 0;
     itemQuantity = 0;
   }
-  ItemToPurchase(string name, string description, int price, int quantity = 0) {
+  ItemToPurchase::ItemToPurchase(string name, string description, int price, int quantity = 0) {
     itemName = name;
     itemDescription = description;
     itemPrice = price;
     itemQuantity = quantity;
   }
-  void SetName(string name) {
+  void ItemToPurchase::SetName(string name) {
     itemName = name;
   }
-  void SetDescription(string description) {
+  void ItemToPurchase::SetDescription(string description) {
     itemDescription = description;
   }
-  void SetPrice(int price) {
+  void ItemToPurchase::SetPrice(int price) {
     itemPrice = price;
   }
-  void SetQuantity(int quantity) {
+  void ItemToPurchase::SetQuantity(int quantity) {
     itemQuantity = quantity;
   }
       
-  string GetName() const {
+  string ItemToPurchase::GetName() const {
     return itemName;
   }
-  string GetDescription() const {
+  string ItemToPurchase::GetDescription() const {
     return itemDescription;
   }
-  int GetPrice() const {
+  int ItemToPurchase::GetPrice() const {
     return itemPrice;
   }
-  int GetQuantity() const {
+  int ItemToPurchase::GetQuantity() const {
     return itemQuantity;
   }
       
-  void PrintItemCost() {
+  void ItemToPurchase::PrintItemCost() {
     //Bottled Water 10 @ $1 = $10
     cout << itemName << " " << itemQuantity << " @ $" << itemPrice << " = $" << (itemQuantity * itemPrice) << endl;
   }
-  void PrintItemDescription() {
+  void ItemToPurchase::PrintItemDescription() {
     //Bottled Water: Deer Park, 12 oz.
     cout << itemName << ": " << itemDescription << endl;
   }
