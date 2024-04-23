@@ -49,12 +49,11 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
       }
       else if( option=='i'){
          cout<<"OUTPUT ITEMS' DESCRIPTIONS"<<endl;
-         cout<<theCart.GetCustomerName()<<"'s Shopping Cart - "<<theCart.GetDate()<<endl;
-         cout << endl;
          theCart.PrintDescriptions();
       }
       else if( option=='o'){
-         
+         cout<<"OUTPUT SHOPPING CART"<<endl;
+         theCart.PrintTotal();
       }
       else { }
    
