@@ -50,11 +50,11 @@ using namespace std;
   //print functions
   void ItemToPurchase::PrintItemCost() {
     //Bottled Water 10 @ $1 = $10
-    cout << itemName << " " << itemQuantity << " @ $" << itemPrice << " = $" << (itemQuantity * itemPrice) << endl;
+    std::cout << itemName << " " << itemQuantity << " @ $" << itemPrice << " = $" << (itemQuantity * itemPrice) << std::endl;
   }
   void ItemToPurchase::PrintItemDescription() {
     //Bottled Water: Deer Park, 12 oz.
-    cout << itemName << ": " << itemDescription << endl;
+    std::cout << itemName << ": " << itemDescription << std::endl;
   }
    
    /* string itemName;
