@@ -62,4 +62,3 @@ using namespace std;
       string itemDescription;
       int itemPrice;
       int itemQuantity;*/
-}
