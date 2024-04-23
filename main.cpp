@@ -17,12 +17,9 @@ void PrintMenu() {
    cout << "i - Output items' descriptions" << endl;
    cout << "o - Output shopping cart" << endl;
    cout << "q - Quit" << endl;
-   cout<<endl;
-   cout<<"Choose an option: "<<endl;
 }
 
 void ExecuteMenu(char option, ShoppingCart& theCart) {
-  while( option!='q'){
       if( option=='a'){
          cout<<"ADD ITEM TO CART"<<endl;
          cout<<"Enter the item name:"<<endl;
@@ -41,7 +38,11 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          theCart.AddItem(item);
       }
       else if( option=='d'){
-         
+          cout<<"REMOVE ITEM FROM CART"<<endl;
+         cout<<"Enter name of item to remove:"<<endl;
+         string InName;
+         getline(cin,  InName);
+         theCart.RemoveItem(InName);
       }
       else if( option=='c'){
          
@@ -53,7 +54,6 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          
       }
       else { }
-}
    
 }
 
@@ -73,9 +73,15 @@ int main() {
    cout<<"Today's date: "<<Userdate<<endl;
    ShoppingCart Cart(Username, Userdate);
    
+   
    PrintMenu();
+   cout<<"Choose an option: "<<endl;
    cin >> option;
-   ExecuteMenu(option, Cart);
+   while(option!='q'){
+      ExecuteMenu(option, Cart);
+      cin>>option;
+   }
+      
    
    
    
