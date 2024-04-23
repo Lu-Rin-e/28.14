@@ -48,7 +48,10 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          
       }
       else if( option=='i'){
-         
+         cout<<"OUTPUT ITEMS' DESCRIPTIONS"<<endl;
+         cout<<theCart.GetCustomerName()<<"'s Shopping Cart - "<<theCart.GetDate()<<endl;
+         cout << endl;
+         theCart.PrintDescriptions();
       }
       else if( option=='o'){
          
@@ -71,14 +74,17 @@ int main() {
    
    cout<<"Customer name: "<<Username<<endl;
    cout<<"Today's date: "<<Userdate<<endl;
+   cout << endl;
    ShoppingCart Cart(Username, Userdate);
    
    
    PrintMenu();
-   cout<<"Choose an option: "<<endl;
+   cout<<endl;
+   cout<<"Choose an option:"<<endl;
    cin >> option;
    while(option!='q'){
       ExecuteMenu(option, Cart);
+      cout<<"Choose an option:"<<endl;
       cin>>option;
    }
       
