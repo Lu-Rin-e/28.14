@@ -18,6 +18,13 @@ ShoppingCart::ShoppingCart(string name, string date){
   
 }
 
+void ShoppingCart::SetCustomerName(string name) {
+      customerName = name;
+}
+void ShoppingCart::SetCurrentDate(string date) {
+      currentDate = date;
+}
+
 string ShoppingCart::GetCustomerName() const{
   return customerName;
   
