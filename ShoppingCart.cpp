@@ -31,7 +31,7 @@ void ShoppingCart::AddItem(ItemToPurchase item){
 void ShoppingCart::RemoveItem(string name){
   for(unsigned int i=0; i<cartItems.size();i++){
     if(cartItems[i].GetName()==name){
-       cartItems.erase(cartItems.begin()+i-1);     
+      cartItems.erase(cartItems.begin()+i-1);
       return;      
     }
   }
@@ -44,6 +44,7 @@ void ShoppingCart::ModifyItem(ItemToPurchase item){
       
 int ShoppingCart::GetNumItemsInCart(){
   return cartItems.size();
+  
 }
 
 double ShoppingCart::GetCostOfCart(){
@@ -60,13 +61,13 @@ void ShoppingCart::PrintTotal(){
   }
   else{
     cout<<customerName<<"'s Shopping Cart - "<< currentDate<< endl;
-    cout<<"Number of Items: "<< cartItems.GetNumItemsInCart()<<endl;
+    cout<<"Number of Items: "<< GetNumItemsInCart()<<endl;
     cout<<endl;
     for(ItemToPurchase e:cartItems){
       e.PrintItemCost();
     }
     cout<<endl;
-    cout<<"Total: "<<cartItems.GetCostOfCart()<<endl;
+    cout<<"Total: "<<GetCostOfCart()<<endl;
   }
 }
 
