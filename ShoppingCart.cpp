@@ -45,7 +45,7 @@ void ShoppingCart::RemoveItem(string name){
 void ShoppingCart::ModifyItem(ItemToPurchase item) {
       for (int i = 0; i < cartItems.size(); i++) {
             if (cartItems[i].GetName() == item.GetName()) {
-                  if (!(description == "" && price == 0 && quantity == 0)) {
+                  if (!(cartItems[i].GetDescription == "" && cartItems[i].GetPrice == 0 && cartItems[i].GetQuantity == 0)) {
                         //modify stuff
                         string desc; //new description
                         int p, q; //new price and quantity
