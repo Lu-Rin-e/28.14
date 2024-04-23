@@ -17,17 +17,28 @@ void PrintMenu() {
    cout << "i - Output items' descriptions" << endl;
    cout << "o - Output shopping cart" << endl;
    cout << "q - Quit" << endl;
+   cout<<endl;
+   cout<<"Choose an option: "<<endl;
 }
 
 void ExecuteMenu(char option, ShoppingCart& theCart) {
   while( option!='q'){
-     cout<<"Choose an option: "<<endl;
       if( option=='a'){
-         ItemToPurchase item();
          cout<<"ADD ITEM TO CART"<<endl;
          cout<<"Enter the item name:"<<endl;
-         getline(cin, item.SetName() );
-
+         string InName;
+         getline(cin,  InName);
+         cout<<"Enter the item description:"<<endl;
+         string InDescr;
+         getline(cin, InDescr);
+         cout<<"Enter the item price:"<<endl;
+         int InPrice;
+         cin>>InPrice;
+         cout<<"Enter the item quantity:"<<endl;
+         int InQuant;
+         cin>> InQuant;
+         ItemToPurchase item(InName, InDescr, InPrice, InQuant);
+         theCart.AddItem(item);
       }
       else if( option=='d'){
          
@@ -48,20 +59,20 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
 
 int main() {
    /* Type your code here */
-   string customerName;
+   string name;
    string date;
    char option;
-   ShopingCart theCart();
+
    cout << "Enter customer's name:" << endl;
-   getline(cin, customerName);
-   theCart.SetName(customName);
+   getline(cin, name);
    cout << "Enter today's date:" << endl;
    getline(cin, date);
-   theCart.SetDate(date);
    cout << endl;
-
+   ShoppingCart Cart(name, date);
    PrintMenu();
    cin >> option;
+   ExecuteMenu(option, Cart);
+   
    
    
    return 0;
