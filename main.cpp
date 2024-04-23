@@ -59,16 +59,20 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
 
 int main() {
    /* Type your code here */
-   string name;
-   string date;
+   string Username;
+   string Userdate;
    char option;
 
    cout << "Enter customer's name:" << endl;
-   getline(cin, name);
+   getline(cin, Username);
    cout << "Enter today's date:" << endl;
-   getline(cin, date);
+   getline(cin, Userdate);
    cout << endl;
-   ShoppingCart Cart(name, date);
+   
+   cout<<"Customer name: "<<Username<<endl;
+   cout<<"Today's date: "<<Userdate<<endl;
+   ShoppingCart Cart(Username, Userdate);
+   
    PrintMenu();
    cin >> option;
    ExecuteMenu(option, Cart);
