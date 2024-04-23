@@ -78,13 +78,13 @@ double ShoppingCart::GetCostOfCart(){
 }
       
 void ShoppingCart::PrintTotal(){
+   cout<<customerName<<"'s Shopping Cart - "<< currentDate<< endl;
+   cout<<"Number of Items: "<< GetNumItemsInCart()<<endl;
+   cout<<endl;
   if(cartItems.size() ==0){
     cout<<"SHOPPING CART IS EMPTY"<<endl;
   }
   else{
-    cout<<customerName<<"'s Shopping Cart - "<< currentDate<< endl;
-    cout<<"Number of Items: "<< GetNumItemsInCart()<<endl;
-    cout<<endl;
     for(ItemToPurchase e:cartItems){
       e.PrintItemCost();
     }
