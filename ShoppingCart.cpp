@@ -49,21 +49,26 @@ void ShoppingCart::RemoveItem(string name){
   cout<<"Item not found in cart. Nothing removed."<<endl;
 }
       
-void ShoppingCart::ModifyItem(ItemToPurchase item){
-  for (int i = 0; i < cartItems.length(); i++) {
-    if (cartItems[i].GetName() == item.GetName()) {
-      if (!(description == "" && price == 0 && quantity == 0)) {
-        //modify stuff
-        string desc;
-        int p, q;
-        getline(cin, desc);
-        item.SetDescription();
-        cin >> p;
-        cin >> q;
+void ShoppingCart::ModifyItem(ItemToPurchase item) {
+      for (int i = 0; i < cartItems.length(); i++) {
+            if (cartItems[i].GetName() == item.GetName()) {
+                  if (!(description == "" && price == 0 && quantity == 0)) {
+                        //modify stuff
+                        string desc; //new description
+                        int p, q; //new price and quantity
+                        cout << "Enter item description: " << endl;
+                        getline(cin, desc);
+                        item.SetDescription(desc);
+                        cin >> p;
+                        cout << "Enter item price: " << endl;
+                        item.SetPrice(p);
+                        cin >> q;
+                        cout << "Enter item quantity: " << endl;
+                        item.SetQuantity(q);
+                  }
+            }
       }
-    }
-  }
-  cout << "Item not found in cart. Nothing modified." << endl;
+      cout << "Item not found in cart. Nothing modified." << endl;
 }
       
 int ShoppingCart::GetNumItemsInCart(){
