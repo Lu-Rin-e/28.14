@@ -14,6 +14,9 @@ class ShoppingCart {
       
       string GetCustomerName() const;
       string GetDate() const;
+
+      void SetCustomerName(string name);
+      void SetCurrentDate(string date);
       
       void AddItem(ItemToPurchase item);
       void RemoveItem(string name);
