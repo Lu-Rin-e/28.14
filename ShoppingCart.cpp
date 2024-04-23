@@ -6,9 +6,9 @@ using namespace std;
       string currentDate;
       vector<ItemToPurchase> cartItems;*/
 
-ShoppingCart::ShoppingCart(){
-  customerName="";
-  currentDate="";  
+ShoppingCart::ShoppingCart() {
+  customerName="none";
+  currentDate="January 1, 2016";  
   
 }
 
@@ -16,13 +16,6 @@ ShoppingCart::ShoppingCart(string name, string date){
    customerName=name;
    currentDate=date; 
   
-}
-
-void ShoppingCart::SetCustomerName(string name) {
-      customerName = name;
-}
-void ShoppingCart::SetCurrentDate(string date) {
-      currentDate = date;
 }
 
 string ShoppingCart::GetCustomerName() const{
