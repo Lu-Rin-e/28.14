@@ -21,6 +21,11 @@ void PrintMenu() {
 
 void ExecuteMenu(char option, ShoppingCart& theCart) {
       switch(option){
+         case 'o':{
+         cout<<"OUTPUT SHOPPING CART"<<endl;
+         theCart.PrintTotal();
+         break;
+         }
          case 'a': {
          cout<<"ADD ITEM TO CART"<<endl;
          cout<<"Enter the item name:"<<endl;
@@ -35,30 +40,39 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          cout<<"Enter the item quantity:"<<endl;
          int InQuant;
          cin>> InQuant;
+         cout << endl;
+         cin.ignore();
+            
          ItemToPurchase item(InName, InDescr, InPrice, InQuant);
          theCart.AddItem(item);
          break;
-      }
+         }
       case 'd':{
           cout<<"REMOVE ITEM FROM CART"<<endl;
          cout<<"Enter name of item to remove:"<<endl;
          string InName;
          getline(cin,  InName);
+         
          theCart.RemoveItem(InName);
          break;
       }
       case 'c':{
-         
+         string itemName;
+         int newQuantity;
+         cout<<"CHANGE ITEM QUANTITY"<<endl;
+         cout<<"Enter the item name:"<<endl;
+         getline(std::cin, itemName);
+         cout<<"Enter the new quantity:"<<endl;
+         cin >> newQuantity;
+         cin.ignore();
+
+       ItemToPurchase modItem(itemName, "", 0, newQuantity);
+         theCart.ModifyItem(modItem);
          break;
       }
       case 'i':{
          cout<<"OUTPUT ITEMS' DESCRIPTIONS"<<endl;
          theCart.PrintDescriptions();
-         break;
-      }
-      case 'o':{
-         cout<<"OUTPUT SHOPPING CART"<<endl;
-         theCart.PrintTotal();
          break;
       }
       case 'q':{
@@ -97,6 +111,8 @@ int main() {
    cin.ignore();
    while(option!='q'){
       ExecuteMenu(option, Cart);
+      //PrintMenu();
+      //cout<<endl;
       cout<<"Choose an option:"<<endl;
       cin >> option;
       cin.ignore(); 
