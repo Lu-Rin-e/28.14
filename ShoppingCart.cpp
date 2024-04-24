@@ -72,19 +72,19 @@ int ShoppingCart::GetNumItemsInCart(){
 double ShoppingCart::GetCostOfCart(){
   double cartPrice=0.0;
   for(ItemToPurchase e:cartItems){
-    cartPrice+=e.GetPrice();
+    cartPrice= cartPrice + e.GetPrice();
   }
   return cartPrice;
 }
       
 void ShoppingCart::PrintTotal(){
+   cout<<customerName<<"'s Shopping Cart - "<< currentDate<< endl;
+   cout<<"Number of Items: "<< GetNumItemsInCart()<<endl;
+   cout<<endl;
   if(cartItems.size() ==0){
     cout<<"SHOPPING CART IS EMPTY"<<endl;
   }
   else{
-    cout<<customerName<<"'s Shopping Cart - "<< currentDate<< endl;
-    cout<<"Number of Items: "<< GetNumItemsInCart()<<endl;
-    cout<<endl;
     for(ItemToPurchase e:cartItems){
       e.PrintItemCost();
     }
