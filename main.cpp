@@ -111,8 +111,8 @@ int main() {
    cin.ignore();
    while(option!='q'){
       ExecuteMenu(option, Cart);
-      PrintMenu();
-      cout<<endl;
+      //PrintMenu();
+      //cout<<endl;
       cout<<"Choose an option:"<<endl;
       cin >> option;
       cin.ignore(); 
