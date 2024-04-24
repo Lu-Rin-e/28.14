@@ -40,6 +40,8 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          cout<<"Enter the item quantity:"<<endl;
          int InQuant;
          cin>> InQuant;
+         cin.ignore();
+            
          ItemToPurchase item(InName, InDescr, InPrice, InQuant);
          theCart.AddItem(item);
          break;
@@ -49,15 +51,22 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          cout<<"Enter name of item to remove:"<<endl;
          string InName;
          getline(cin,  InName);
+         
          theCart.RemoveItem(InName);
          break;
       }
       case 'c':{
+         string itemName;
+         int newQuantity;
          cout<<"CHANGE ITEM QUANTITY"<<endl;
          cout<<"Enter the item name:"<<endl;
-
+         getline(std::cin, itemName);
          cout<<"Enter the new quantity:"<<endl;
-         
+         cin >> newQuantity;
+         cin.ignore();
+
+       ItemToPurchase modItem(itemName, "", 0, newQuantity);
+         theCart.ModifyItem(modifiedItem);
          break;
       }
       case 'i':{
