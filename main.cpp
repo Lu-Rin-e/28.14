@@ -27,24 +27,25 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          break;
          }
          case 'a': {
-         cout<<"ADD ITEM TO CART"<<endl;
-         cout<<"Enter the item name:"<<endl;
-         string InName;
-         getline(cin,  InName);
-         cout<<"Enter the item description:"<<endl;
-         string InDescr;
-         getline(cin, InDescr);
-         cout<<"Enter the item price:"<<endl;
-         int InPrice;
-         cin>>InPrice;
-         cout<<"Enter the item quantity:"<<endl;
-         int InQuant;
-         cin>> InQuant;
-         cin.ignore();
-            
-         ItemToPurchase item(InName, InDescr, InPrice, InQuant);
-         theCart.AddItem(item);
-         break;
+            cout<<"ADD ITEM TO CART"<<endl;
+            cout<<"Enter the item name:"<<endl;
+            string InName;
+            getline(cin,  InName);
+            cout<<"Enter the item description:"<<endl;
+            string InDescr;
+            getline(cin, InDescr);
+            cout<<"Enter the item price:"<<endl;
+            int InPrice;
+            cin>>InPrice;
+            cout<<"Enter the item quantity:"<<endl;
+            cout << endl;
+            int InQuant;
+            cin>> InQuant;
+            cin.ignore();
+               
+            ItemToPurchase item(InName, InDescr, InPrice, InQuant);
+            theCart.AddItem(item);
+            break;
          }
       case 'd':{
           cout<<"REMOVE ITEM FROM CART"<<endl;
