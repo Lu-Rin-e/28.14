@@ -21,6 +21,11 @@ void PrintMenu() {
 
 void ExecuteMenu(char option, ShoppingCart& theCart) {
       switch(option){
+         case 'o':{
+         cout<<"OUTPUT SHOPPING CART"<<endl;
+         theCart.PrintTotal();
+         break;
+         }
          case 'a': {
          cout<<"ADD ITEM TO CART"<<endl;
          cout<<"Enter the item name:"<<endl;
@@ -38,7 +43,7 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          ItemToPurchase item(InName, InDescr, InPrice, InQuant);
          theCart.AddItem(item);
          break;
-      }
+         }
       case 'd':{
           cout<<"REMOVE ITEM FROM CART"<<endl;
          cout<<"Enter name of item to remove:"<<endl;
@@ -48,17 +53,16 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          break;
       }
       case 'c':{
+         cout<<"CHANGE ITEM QUANTITY"<<endl;
+         cout<<"Enter the item name:"<<endl;
+
+         cout<<"Enter the new quantity:"<<endl;
          
          break;
       }
       case 'i':{
          cout<<"OUTPUT ITEMS' DESCRIPTIONS"<<endl;
          theCart.PrintDescriptions();
-         break;
-      }
-      case 'o':{
-         cout<<"OUTPUT SHOPPING CART"<<endl;
-         theCart.PrintTotal();
          break;
       }
       case 'q':{
