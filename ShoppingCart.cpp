@@ -72,7 +72,7 @@ int ShoppingCart::GetNumItemsInCart(){
 double ShoppingCart::GetCostOfCart(){
   double cartPrice=0.0;
   for(ItemToPurchase e:cartItems){
-    cartPrice+=e.GetPrice();
+    cartPrice= cartPrice + e.GetPrice();
   }
   return cartPrice;
 }
