@@ -20,13 +20,13 @@ void PrintMenu() {
 }
 
 void ExecuteMenu(char option, ShoppingCart& theCart) {
-      switch(option){
-         case 'o':{
+   switch(option) {
+      case 'o': {
          cout<<"OUTPUT SHOPPING CART"<<endl;
          theCart.PrintTotal();
          break;
-         }
-         case 'a': {
+      }
+      case 'a': {
          cout<<"ADD ITEM TO CART"<<endl;
          cout<<"Enter the item name:"<<endl;
          string InName;
@@ -46,13 +46,13 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          ItemToPurchase item(InName, InDescr, InPrice, InQuant);
          theCart.AddItem(item);
          break;
-         }
+      }
       case 'd':{
-          cout<<"REMOVE ITEM FROM CART"<<endl;
+         cout<<"REMOVE ITEM FROM CART"<<endl;
          cout<<"Enter name of item to remove:"<<endl;
          string InName;
          getline(cin,  InName);
-         
+            
          theCart.RemoveItem(InName);
          break;
       }
@@ -65,8 +65,8 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          cout<<"Enter the new quantity:"<<endl;
          cin >> newQuantity;
          cin.ignore();
-
-       ItemToPurchase modItem(itemName, "", 0, newQuantity);
+   
+         ItemToPurchase modItem(itemName, "", 0, newQuantity);
          theCart.ModifyItem(modItem);
          break;
       }
@@ -78,12 +78,10 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
       case 'q':{
          return;
       }
-      default:{
-         
+      default: {
          break;
       }
-      }
-   
+   }
 }
 
 int main() {
@@ -103,7 +101,6 @@ int main() {
    cout << endl;
    ShoppingCart Cart(Username, Userdate);
    
-   
    PrintMenu();
    cout<<endl;
    cout<<"Choose an option:"<<endl;
@@ -116,11 +113,6 @@ int main() {
       cout<<"Choose an option:"<<endl;
       cin >> option;
       cin.ignore(); 
-      
    }
-      
-   
-   
-   
    return 0;
 }
