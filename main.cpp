@@ -66,7 +66,7 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          cin.ignore();
 
        ItemToPurchase modItem(itemName, "", 0, newQuantity);
-         theCart.ModifyItem(modifiedItem);
+         theCart.ModifyItem(modItem);
          break;
       }
       case 'i':{
@@ -110,6 +110,8 @@ int main() {
    cin.ignore();
    while(option!='q'){
       ExecuteMenu(option, Cart);
+      PrintMenu();
+      cout<<endl;
       cout<<"Choose an option:"<<endl;
       cin >> option;
       cin.ignore(); 
