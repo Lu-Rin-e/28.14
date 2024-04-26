@@ -43,39 +43,32 @@ void ShoppingCart::RemoveItem(string name){
 }
       
 void ShoppingCart::ModifyItem(ItemToPurchase item) {
-   for (unsigned int i = 0; i < cartItems.size(); i++) {
-      if (cartItems[i].GetName() == item.GetName()) {
-         if (!(cartItems[i].GetDescription() == "" && cartItems[i].GetPrice() == 0 && cartItems[i].GetQuantity() == 0)) {
-            //modify stuff
-            string desc; //new description
-            int p, q; //new price and quantity
-            cout << "Enter item description: " << endl;
-            getline(cin, desc);
-            item.SetDescription(desc);
-            cin >> p;
-            cout << "Enter item price: " << endl;
-            item.SetPrice(p);
-            cin >> q;
-            cout << "Enter item quantity: " << endl;
-            item.SetQuantity(q);
-         }
-      }
-   }
-   cout << "Item not found in cart. Nothing modified." << endl;
-}
-
-
-
-      
+   for (ItemToPurchase cartItem : cartItems) {
+        if (cartItem.GetName() == item.GetName()) {
+            if (!item.GetDescription().empty())
+                cartItem.SetDescription(item.GetDescription());
+            if (item.GetPrice() != 0)
+                cartItem.SetPrice(item.GetPrice());
+            if (item.GetQuantity() != 0)
+                cartItem.SetQuantity(item.GetQuantity());
+            return;
+        }
+    }
+    std::cout << "Item not found in cart. Nothing modified." << std::endl;
+} 
+    
 int ShoppingCart::GetNumItemsInCart(){
-  return cartItems.size();
-  
+  int num = 0;
+  for(ItemToPurchase e:cartItems){
+    num += e.GetQuantity();
+  }
+  return num;  
 }
 
 double ShoppingCart::GetCostOfCart(){
-  double cartPrice=0.0;
+  double cartPrice = 0.0;
   for(ItemToPurchase e:cartItems){
-    cartPrice= cartPrice + (e.GetPrice() * e.GetQuantity());
+    cartPrice += (e.GetPrice() * e.GetQuantity());
   }
   return cartPrice;
 }
