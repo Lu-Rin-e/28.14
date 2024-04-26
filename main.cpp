@@ -33,19 +33,17 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          string InName;
          cin.ignore();
          getline(cin,  InName);
-         //cin.ignore();
          cout<<"Enter the item description:"<<endl;
          string InDescr;
-         cin.ignore();
          getline(cin, InDescr);
-         //cin.ignore();
          cout<<"Enter the item price:"<<endl;
          int InPrice;
          cin>>InPrice;
+         cin.ignore(); 
          cout<<"Enter the item quantity:"<<endl;
          int InQuant;
          cin>> InQuant;
-         //cout << endl;
+
          
             
          ItemToPurchase item(InName, InDescr, InPrice, InQuant);
@@ -58,7 +56,6 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          string InName;
          cin.ignore();
          getline(cin,  InName);
-         //cin.ignore();
             
          theCart.RemoveItem(InName);
          break;
@@ -70,11 +67,9 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          cout<<"Enter the item name:"<<endl;
          cin.ignore();
          getline(std::cin, itemName);
-         //cin.ignore();
          cout<<"Enter the new quantity:"<<endl;
          cin >> newQuantity;
-         cin.ignore();
-   
+
          ItemToPurchase modItem(itemName, "", 0, newQuantity);
          theCart.ModifyItem(modItem);
          break;
