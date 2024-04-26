@@ -31,20 +31,22 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          cout<<"ADD ITEM TO CART"<<endl;
          cout<<"Enter the item name:"<<endl;
          string InName;
-         getline(cin,  InName);
          cin.ignore();
+         getline(cin,  InName);
+         //cin.ignore();
          cout<<"Enter the item description:"<<endl;
          string InDescr;
-         getline(cin, InDescr);
          cin.ignore();
+         getline(cin, InDescr);
+         //cin.ignore();
          cout<<"Enter the item price:"<<endl;
          int InPrice;
          cin>>InPrice;
          cout<<"Enter the item quantity:"<<endl;
          int InQuant;
          cin>> InQuant;
-         cout << endl;
-         cin.ignore();
+         //cout << endl;
+         
             
          ItemToPurchase item(InName, InDescr, InPrice, InQuant);
          theCart.AddItem(item);
@@ -54,8 +56,9 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          cout<<"REMOVE ITEM FROM CART"<<endl;
          cout<<"Enter name of item to remove:"<<endl;
          string InName;
-         getline(cin,  InName);
          cin.ignore();
+         getline(cin,  InName);
+         //cin.ignore();
             
          theCart.RemoveItem(InName);
          break;
@@ -65,8 +68,9 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          int newQuantity;
          cout<<"CHANGE ITEM QUANTITY"<<endl;
          cout<<"Enter the item name:"<<endl;
-         getline(std::cin, itemName);
          cin.ignore();
+         getline(std::cin, itemName);
+         //cin.ignore();
          cout<<"Enter the new quantity:"<<endl;
          cin >> newQuantity;
          cin.ignore();
@@ -112,8 +116,8 @@ int main() {
    while (option != 'q') {
       cout << "Choose an option:" << endl;
       cin >> option;
-      if (option == 'a' || option == 'd' || option == 'c' ||
-          option == 'i' || option == 'o') {
+      if (option == 'a' || option == 'd' || option == 'c' || option == 'i' || option == 'o') {
+         
          ExecuteMenu(option, Cart);
          cout<<endl;
          PrintMenu();
