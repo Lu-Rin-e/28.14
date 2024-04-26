@@ -43,19 +43,30 @@ void ShoppingCart::RemoveItem(string name){
 }
       
 void ShoppingCart::ModifyItem(ItemToPurchase item) {
-   for (ItemToPurchase cartItem : cartItems) {
-        if (cartItem.GetName() == item.GetName()) {
-            if (!item.GetDescription().empty())
-                cartItem.SetDescription(item.GetDescription());
-            if (item.GetPrice() != 0)
-                cartItem.SetPrice(item.GetPrice());
-            if (item.GetQuantity() != 0)
-                cartItem.SetQuantity(item.GetQuantity());
-            return;
+   bool found = false;
+    for (ItemToPurchase e : cartItems) {
+        if (e.GetName() == item.GetName()) {
+            // Item found in cart
+            found = true;
+            // Check if parameter has default values for description, price, and quantity
+            if (!item.GetDescription().empty()) {
+                e.SetDescription(item.GetDescription());
+            }
+            if (item.GetPrice() != 0) {
+                e.SetPrice(item.GetPrice());
+            }
+            if (item.GetQuantity() != 0) {
+                e.SetQuantity(item.GetQuantity());
+            }
+            // Item modified
+            std::cout << "Item modified: " << e.GetName() << std::endl;
+            break;
         }
     }
-    std::cout << "Item not found in cart. Nothing modified." << std::endl;
-} 
+    if (!found) {
+        std::cout << "Item not found in cart. Nothing modified." << std::endl;
+    }
+}
     
 int ShoppingCart::GetNumItemsInCart(){
   int num = 0;
