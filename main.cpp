@@ -1,4 +1,4 @@
-// git repository link
+// https://github.com/Lu-Rin-e/28.14.git
 // Catherine Lu
 // Katie Frymire
 
@@ -17,23 +17,26 @@ void PrintMenu() {
    cout << "i - Output items' descriptions" << endl;
    cout << "o - Output shopping cart" << endl;
    cout << "q - Quit" << endl;
+   cout<<endl;
 }
 
 void ExecuteMenu(char option, ShoppingCart& theCart) {
-      switch(option){
-         case 'o':{
+   switch(option) {
+      case 'o': {
          cout<<"OUTPUT SHOPPING CART"<<endl;
          theCart.PrintTotal();
          break;
-         }
-         case 'a': {
+      }
+      case 'a': {
          cout<<"ADD ITEM TO CART"<<endl;
          cout<<"Enter the item name:"<<endl;
          string InName;
          getline(cin,  InName);
+         cin.ignore();
          cout<<"Enter the item description:"<<endl;
          string InDescr;
          getline(cin, InDescr);
+         cin.ignore();
          cout<<"Enter the item price:"<<endl;
          int InPrice;
          cin>>InPrice;
@@ -46,13 +49,14 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          ItemToPurchase item(InName, InDescr, InPrice, InQuant);
          theCart.AddItem(item);
          break;
-         }
+      }
       case 'd':{
-          cout<<"REMOVE ITEM FROM CART"<<endl;
+         cout<<"REMOVE ITEM FROM CART"<<endl;
          cout<<"Enter name of item to remove:"<<endl;
          string InName;
          getline(cin,  InName);
-         
+         cin.ignore();
+            
          theCart.RemoveItem(InName);
          break;
       }
@@ -62,11 +66,12 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          cout<<"CHANGE ITEM QUANTITY"<<endl;
          cout<<"Enter the item name:"<<endl;
          getline(std::cin, itemName);
+         cin.ignore();
          cout<<"Enter the new quantity:"<<endl;
          cin >> newQuantity;
          cin.ignore();
-
-       ItemToPurchase modItem(itemName, "", 0, newQuantity);
+   
+         ItemToPurchase modItem(itemName, "", 0, newQuantity);
          theCart.ModifyItem(modItem);
          break;
       }
@@ -78,12 +83,10 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
       case 'q':{
          return;
       }
-      default:{
-         
+      default: {
          break;
       }
-      }
-   
+   }
 }
 
 int main() {
@@ -103,24 +106,18 @@ int main() {
    cout << endl;
    ShoppingCart Cart(Username, Userdate);
    
-   
    PrintMenu();
-   cout<<endl;
-   cout<<"Choose an option:"<<endl;
-   cin >> option;
-   cin.ignore();
-   while(option!='q'){
-      ExecuteMenu(option, Cart);
-      //PrintMenu();
-      //cout<<endl;
-      cout<<"Choose an option:"<<endl;
+   
+   option = ' ';
+   while (option != 'q') {
+      cout << "Choose an option:" << endl;
       cin >> option;
-      cin.ignore(); 
-      
+      if (option == 'a' || option == 'd' || option == 'c' ||
+          option == 'i' || option == 'o') {
+         ExecuteMenu(option, Cart);
+         cout<<endl;
+         PrintMenu();
+      }
    }
-      
-   
-   
-   
    return 0;
 }
