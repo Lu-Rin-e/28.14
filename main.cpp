@@ -73,7 +73,7 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          //cin.ignore();
          cout<<"Enter the new quantity:"<<endl;
          cin >> newQuantity;
-         //cin.ignore();
+         cin.ignore();
    
          ItemToPurchase modItem(itemName, "", 0, newQuantity);
          theCart.ModifyItem(modItem);
@@ -107,7 +107,7 @@ int main() {
    
    cout<<"Customer name: "<<Username<<endl;
    cout<<"Today's date: "<<Userdate<<endl;
-   cout << endl;//needed mostly
+   cout << endl;
    ShoppingCart Cart(Username, Userdate);
    
    PrintMenu();
@@ -119,7 +119,7 @@ int main() {
       if (option == 'a' || option == 'd' || option == 'c' || option == 'i' || option == 'o') {
          
          ExecuteMenu(option, Cart);
-         cout<<endl; //needed
+         cout<<endl;
          PrintMenu();
       }
    }
