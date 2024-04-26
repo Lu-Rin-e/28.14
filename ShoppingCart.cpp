@@ -63,6 +63,9 @@ void ShoppingCart::ModifyItem(ItemToPurchase item) {
    }
    cout << "Item not found in cart. Nothing modified." << endl;
 }
+
+
+
       
 int ShoppingCart::GetNumItemsInCart(){
   return cartItems.size();
