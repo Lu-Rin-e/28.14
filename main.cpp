@@ -1,4 +1,4 @@
-// git repository link
+// https://github.com/Lu-Rin-e/28.14.git
 // Catherine Lu
 // Katie Frymire
 
