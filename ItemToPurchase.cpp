@@ -52,7 +52,8 @@ using namespace std;
   //print functions
   void ItemToPurchase::PrintItemCost() {
     //Bottled Water 10 @ $1 = $10
-    cout << itemName << " " << itemQuantity << " @ $" << itemPrice << " = $" << (itemQuantity * itemPrice) << endl;
+    std::cout << itemName << " " << itemQuantity << " @ $" << itemPrice
+              << " = $" << itemPrice * itemQuantity << std::endl;
   }
   void ItemToPurchase::PrintItemDescription() {
     //Bottled Water: Deer Park, 12 oz.
