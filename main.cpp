@@ -17,6 +17,7 @@ void PrintMenu() {
    cout << "i - Output items' descriptions" << endl;
    cout << "o - Output shopping cart" << endl;
    cout << "q - Quit" << endl;
+   cout<<endl;
 }
 
 void ExecuteMenu(char option, ShoppingCart& theCart) {
@@ -106,13 +107,15 @@ int main() {
    ShoppingCart Cart(Username, Userdate);
    
    PrintMenu();
-   option = '  ';
+   
+   option = ' ';
    while (option != 'q') {
       cout << "Choose an option:" << endl;
       cin >> option;
       if (option == 'a' || option == 'd' || option == 'c' ||
           option == 'i' || option == 'o') {
          ExecuteMenu(option, Cart);
+         cout<<endl;
          PrintMenu();
       }
    }
