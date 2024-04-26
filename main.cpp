@@ -107,7 +107,7 @@ int main() {
    
    cout<<"Customer name: "<<Username<<endl;
    cout<<"Today's date: "<<Userdate<<endl;
-   cout << endl;
+   cout << endl;//needed mostly
    ShoppingCart Cart(Username, Userdate);
    
    PrintMenu();
@@ -119,7 +119,7 @@ int main() {
       if (option == 'a' || option == 'd' || option == 'c' || option == 'i' || option == 'o') {
          
          ExecuteMenu(option, Cart);
-         cout<<endl;
+         cout<<endl; //needed
          PrintMenu();
       }
    }
