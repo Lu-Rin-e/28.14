@@ -44,7 +44,7 @@ void ShoppingCart::RemoveItem(string name){
       
 void ShoppingCart::ModifyItem(ItemToPurchase item) {
    bool found = false;
-    for (ItemToPurchase e : cartItems) {
+    for (ItemToPurchase& e : cartItems) {
         if (e.GetName() == item.GetName()) {
             // Item found in cart
             found = true;
